@@ -1,0 +1,216 @@
+// import { Component, OnInit } from '@angular/core';
+
+// import { ResizedEvent } from 'angular-resize-event/resized-event';
+
+
+
+// @Component({
+//   selector: 'app-window',
+//   templateUrl: './window.component.html',
+//   styleUrls: ['./window.component.scss']
+// })
+// export class WindowComponent implements OnInit {
+
+// 	public opened = true;
+//     public dataSaved = false;
+
+
+// 	columnDefs = [
+//         {headerName: 'Make', field: 'make' },
+//         {headerName: 'Model', field: 'model' },
+//         {headerName: 'Price', field: 'price'}
+//     ];
+
+//     rowData = [
+//         { make: 'Toyota', model: 'Celica', price: 35000 },
+//         { make: 'Ford', model: 'Mondeo', price: 32000 },
+//         { make: 'Porsche', model: 'Boxter', price: 72000 }
+//     ];
+    
+//   	width: number;
+//   	height: number;
+
+// 	workspaceSize: number;
+// 	workspaceHeight: number;
+// 	workspaceWidth: number;
+
+// 	windowSize: number;
+// 	windowHeight: number;
+// 	windowWidth: number;
+
+// 	windowToolRestore = false;
+// 	windowToolMaximize = true;
+
+// 	constructor() { }
+
+// 	ngOnInit() {
+		
+// 		//Make the DIV element draggagle:
+// 		dragElement(document.getElementById(("window")));
+
+// 		function dragElement(elmnt) {
+
+// 	  		var pos1 = 0, 
+// 		  		pos2 = 0, 
+// 		  		pos3 = 0, 
+// 		  		pos4 = 0;
+
+// 		  	if (document.getElementById(elmnt.id + "header")) {
+// 			    /* if present, the header is where you move the DIV from:*/
+// 			    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+// 		  	} 
+// 		  	else {
+// 			    /* otherwise, move the DIV from anywhere inside the DIV:*/
+// 			    elmnt.onmousedown = dragMouseDown;
+// 		  	}
+
+// 		  	function dragMouseDown(e) {
+// 			    e = e || window.event;
+// 			    // get the mouse cursor position at startup:
+// 			    pos3 = e.clientX;
+// 			    pos4 = e.clientY;
+
+// 			    document.onmouseup = closeDragElement;
+// 			    // call a function whenever the cursor moves:
+// 		    	document.onmousemove = elementDrag;   
+// 		  	}
+
+// 		  	function elementDrag(e) {
+// 		    	e = e || window.event;
+
+// 	  			this.workspaceHeight = document.getElementById('workspace');
+
+// 			    if(e.clientX > -1 && e.clientY > -1 && e.clientY < this.workspaceHeight.clientHeight - 50 && e.clientX < this.workspaceHeight.clientWidth ) {
+// 		    	 	// calculate the new cursor position:
+// 				    pos1 = pos3 - e.clientX;
+// 				    pos2 = pos4 - e.clientY;
+// 				    pos3 = e.clientX;
+// 				    pos4 = e.clientY;
+// 				    // set the element's new position:
+// 				    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+// 				    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+// 			    }
+// 		  	}
+
+// 		  	function closeDragElement() {
+// 			    /* stop moving when mouse button is released:*/
+// 			    document.onmouseup = null;
+// 			    document.onmousemove = null;
+// 		  	}
+// 		}
+// 	}
+
+// 	close() {
+// 		this.ngOnDestroy();
+// 	}
+
+// 	active() {
+
+// 	}
+
+// 	ngOnDestroy() {
+// 		console.log("ngOnDestroy")
+// 	}
+
+// 	onResized(event: ResizedEvent): void {
+// 		this.width = event.newWidth;
+// 		this.height = event.newHeight;
+// 	}
+
+// 	setAttr() {
+// 		this.workspaceSize = document.getElementById('workspace');
+// 		this.workspaceHeight = document.getElementById('workspace').offsetHeight;
+// 		this.workspaceWidth = document.getElementById('workspace').offsetWidth;
+// 		this.windowSize = document.getElementById('window');
+// 		this.windowHeight = document.getElementById('window').offsetHeight;
+// 		this.windowWidth = document.getElementById('window').offsetWidth;
+// 	}
+
+// 	doubleClick(): void{
+
+// 		this.preventSimpleClick = true;
+// 		clearTimeout(this.timer);
+
+// 		this.setAttr();
+
+// 		// this.workspaceSize = document.getElementById('workspace');
+// 		// this.workspaceHeight = document.getElementById('workspace').offsetHeight;
+// 		// this.workspaceWidth = document.getElementById('workspace').offsetWidth;
+
+// 		// this.windowSize = document.getElementById('window');
+// 		// this.windowHeight = document.getElementById('window').offsetHeight;
+// 		// this.windowWidth = document.getElementById('window').offsetWidth;
+
+// 		if(this.windowWidth < this.workspaceWidth && this.windowHeight < this.workspaceHeight) {
+// 			this.windowMaximize();
+// 		}
+// 		else {	
+// 			this.windowRestore();
+// 		}
+// 	}
+
+// 	windowMaximize() {
+		
+// 		this.setAttr();
+
+// 		console.log('click')
+// 		console.log(this.windowWidth);
+
+// 		if(this.windowWidth < this.workspaceWidth && this.windowHeight < this.workspaceHeight) {
+// 			this.windowToolMaximize = false;
+// 			this.windowToolRestore = true;
+
+// 			this.workspaceHeight = this.workspaceHeight - 70;
+// 			this.windowSize.setAttribute("style","height:"+this.workspaceHeight+"px;width:"+this.workspaceWidth+"px");
+			
+// 			console.log('maximize')	
+
+// 			var element = document.getElementById('window'); //replace elementId with your element's Id.
+// 			var rect = element.getBoundingClientRect();
+// 			var elementLeft,elementTop; //x and y
+// 			var scrollTop = document.documentElement.scrollTop?
+// 			                document.documentElement.scrollTop:document.body.scrollTop;
+// 			var scrollLeft = document.documentElement.scrollLeft?                   
+// 			                 document.documentElement.scrollLeft:document.body.scrollLeft;
+// 			elementTop = rect.top+scrollTop;
+// 			elementLeft = rect.left+scrollLeft;
+// 		}
+// 	}
+
+// 	windowRestore() {
+
+// 		this.setAttr();
+		
+// 		// console.log(this.windowWidth)
+// 		// console.log(this.workspaceWidth)
+// 		// console.log(this.windowHeight)
+// 		// console.log(this.workspaceHeight)
+		
+// 		this.workspaceHeight = this.workspaceHeight - 50;
+
+// 		if(this.windowWidth <= this.workspaceWidth && this.windowHeight <= this.workspaceHeight) {
+// 			this.windowToolMaximize = true;
+// 			this.windowToolRestore = false;
+			
+// 			this.windowSize = document.getElementById('window').setAttribute("style","height:300px;width:300px");
+// 			console.log('minimize')
+// 		}
+// 	}
+
+	
+//     public close() {
+//       this.opened = false;
+//     }
+
+//     public open() {
+//       this.opened = true;
+//     }
+
+//     public submit() {
+//         this.dataSaved = true;
+//         this.close();
+//     }
+
+// }
+
+

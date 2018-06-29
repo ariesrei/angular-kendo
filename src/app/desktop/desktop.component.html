@@ -1,0 +1,21 @@
+
+ <!--  LAUNCHER COMPONENT -->
+<app-launcher 
+	*ngIf="desktopService.showLauncher" 
+	class="launcher" 
+	@launcherAnimate>
+
+</app-launcher>
+ 
+
+ <!--  WORKSPACE COMPONENT -->
+<app-workspace 
+	id="workspace" 
+	class="app-workspace" 
+	(click)="workspaceClear()">
+
+</app-workspace>
+ 
+
+ <!--  TASKBAR COMPONENT -->
+<app-taskbar id="taskbar"> </app-taskbar>

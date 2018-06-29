@@ -1,0 +1,74 @@
+<ng-container #container></ng-container>
+
+<div class="launcher-panel">
+
+	<div class="header">
+		
+		<div class="user-profile">
+		
+			<span class="user-logo"><img src="../../assets/images/user_logo.png"/></span>
+			<span>Welcome User</span>
+
+		</div>
+		
+
+		<div class="pin-title">
+			<span>Pinned Apps</span>
+		</div>
+
+		<div class="recent-title">
+			<span>Recent Apps</span>
+		</div>
+
+	</div>
+
+
+	<div>
+
+		<div>
+			<ul class="launcher-menu">
+				<li (click)="showWindow('Categories')">Categories</li>
+				<li (click)="showWindow('Products')">Products</li>
+				<li (click)="showWindow('Absence Tracking')">Absence Tracking</li>
+			</ul>
+		
+
+			<!-- <app-launcher-menu class="app-launcher-menu"></app-launcher-menu> -->
+ 
+		</div>
+
+
+		<div>
+			<ul class="pinned-apps">
+				<li>App 1</li>
+				<li>App 2</li>
+				<li>App 3</li>
+			</ul>
+		</div>
+		<div>
+			<ul class="pinned-apps">
+				<li>App 1</li>
+				<li>App 2</li>
+				<li>App 3</li>
+			</ul>
+		</div>
+
+	</div> 
+
+
+
+	<div class="footer">
+		<div> </div>
+		<div>
+			<button class="fl"><fa name="info-circle"></fa> </button>
+			<button class="fl"><fa name="cog"></fa></button>
+			<button class="fl"><fa name="expand"></fa></button>
+		</div>
+		<div>
+			<button class="fr">Signout</button>
+		</div>
+
+	</div>
+
+
+</div>

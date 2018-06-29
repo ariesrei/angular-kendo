@@ -1,0 +1,45 @@
+.taskbar {
+	display: block;
+	position: absolute;
+	height: 50px;
+	bottom: 0;
+	width: 100%;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	background: rgba(0,0,0,.7);
+	cursor: default;
+	padding: 0;
+	vertical-align: bottom;
+}
+
+.launcher-btn {
+	color: #eee;
+	border: none;
+	background: rgba(0,0,0,.1);
+	position: relative;
+	height: 100%;
+	vertical-align: middle;
+	padding: 0 25px;
+	margin: 0;
+
+	&:hover,
+	&:active,
+	&:focus {
+		background: rgba(0,0,0,.4);
+		border: none;
+		text-decoration: none;
+		padding: 0 25px;
+		margin: 0;
+	}
+
+	fa {
+		font-size: 1.5em;
+		color: rgba(255,255,255, .5);
+
+		&:hover {
+			color: red;
+		}
+	}
+
+}

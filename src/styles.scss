@@ -1,1 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+
+// @import '.@angular/node_modules/font-awesome/scss/font-awesome.scss';
+
+$font-size: 12px;
+$font-family: Verdana;
+
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+@import "~ag-grid/dist/styles/ag-grid.css";
+
+@import "~ag-grid/dist/styles/ag-theme-balham.css";
+
+@import "~@progress/kendo-theme-default/scss/all";
+
+$taskbar-height: 50px;
+
+html, body {
+	padding: 0;
+	margin: 0;
+	outline: 0;
+}
+body { margin: 0; }
+
+.k-window-titlebar {
+	padding: 0 0 0 10px;
+}
+
+.k-window-content, .k-prompt-container {
+	padding: 1px;
+}
+
+.k-grid {
+	height: 100%;
+}
+
+
+.k-grid td { 
+  white-space: nowrap;
+}
+
+// [ng-reflect-page-size="10"] {
+// 	max-height: 420px;
+// }
+// [ng-reflect-page-size] {
+// 	max-height: 100%;
+// }
