@@ -1,22 +1,46 @@
 
-<button (click)="showWindow('Categories')" class="k-button k-button-icontext k-primary">
+<button (click)="showWindow(windowTitleBar, 'Categories')" class="k-button k-button-icontext k-primary">
     <span class="k-icon k-i-user"></span> Categories
 </button>
 &nbsp;
 
-<button (click)="showWindow('Products')" class="k-button k-button-icontext k-primary">
+<button (click)="showWindow(windowTitleBar, 'Products')" class="k-button k-button-icontext k-primary">
     <span class="k-icon k-i-user"></span> Products
 </button>
 &nbsp;
 
-<button (click)="showWindow('Absence Tracking')" class="k-button k-button-icontext k-primary">
+<!-- <button (click)="showList(windowTitleBar, 'Absence Tracking')" class="k-button k-button-icontext k-primary">
     <span class="k-icon k-i-user"></span> Absence Tracking
 </button>
+<br/>
 
+<button (click)="showList2(itemListRef)" class="k-button">Show my shopping list</button>
+ -->
 
 <app-window></app-window>
 
-<!-- <div style="border: 1px green solid; width: 800px; height: 400px; margin: 0 auto; overflow: hidden;">
-	<ng-container #container ></ng-container>
+
+
+
+<!-- <div class="example-wrapper">
+
+
+	<ng-template #windowTitleBar let-win >
+
+    	<div (click)="test()" class="k-window-title"  >
+			Test  {{ title }}
+		</div>
+    	
+    	<button kendoWindowMinimizeAction [window]="win"></button>
+	    <button kendoWindowRestoreAction [window]="win"></button>
+		<button kendoWindowMaximizeAction [window]="win"></button>
+		<button kendoWindowCloseAction [window]="win"></button>
+  	</ng-template>
+ 
 </div>
- -->
+
+<div kendoWindowContainer></div> -->
+
+<!-- 
+<ng-container #container ></ng-container>
+  -->

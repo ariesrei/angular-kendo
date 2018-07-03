@@ -1,4 +1,4 @@
-import { Injectable } 		from '@angular/core';
+import { Injectable, TemplateRef, Input, HostListener, ViewChild, ViewContainerRef } 		from '@angular/core';
 import { HttpClient } 		from '@angular/common/http';
 
 import { GridDataResult } 	from '@progress/kendo-angular-grid';
@@ -8,7 +8,6 @@ import { Observable } 		from 'rxjs/Observable';
 import { BehaviorSubject } 	from 'rxjs/BehaviorSubject';
 import { map } 				from 'rxjs/operators/map';
 import { tap } 				from 'rxjs/operators/tap';
-
 
 @Injectable({
 	providedIn: 'root'
@@ -20,11 +19,8 @@ export abstract class DesktopService extends BehaviorSubject<GridDataResult> {
  	public showLauncher: boolean = false;
 
 	private BASE_URL = 'https://odatasampleservices.azurewebsites.net/V4/Northwind/Northwind.svc/';
+ 
 
-	// clearObj: any = [
-	// 	'showLauncher':this.showLauncher, 
-	// ]
-	
   	constructor( public http: HttpClient, protected widgetName: string) { 
   		super(null);
   	}
@@ -81,7 +77,6 @@ export abstract class DesktopService extends BehaviorSubject<GridDataResult> {
                 tap(() => this.loading = false)
             );
     }
-
- 	
+ 	 
 }
 

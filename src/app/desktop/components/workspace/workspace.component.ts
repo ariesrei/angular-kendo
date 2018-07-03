@@ -1,11 +1,10 @@
 import { Component, OnInit, TemplateRef, Input, HostListener, ViewChild, ViewContainerRef } from '@angular/core';
 
-import { WindowService, WindowCloseResult, WindowSettings } from '@progress/kendo-angular-dialog';
+// import { WindowService, WindowCloseResult, WindowSettings } from '@progress/kendo-angular-dialog';
 
 
-import { PersonsComponent } from '../../sample-data/persons/persons.component';
-import { ProductsComponent } from '../../sample-data/products/products.component';
-import { CategoriesComponent } from '../../sample-data/categories/categories.component';
+import { DesktopService } from '../../desktop.service';
+import { AppWindowService } from '../../services/window.service';
 
 
 @Component({
@@ -14,51 +13,86 @@ import { CategoriesComponent } from '../../sample-data/categories/categories.com
 })
 export class WorkspaceComponent implements OnInit {
 
-    @ViewChild("container", { read: ViewContainerRef })
-    public containerRef: ViewContainerRef;
+    @Input() public name: string;
+    @Input() public age: number;
 
- 	public moduleContent: any;
+    modulename: any;
 
-  	constructor(private windowService: WindowService) {
+  	constructor( public desktopService: DesktopService, 
+        public appWindowService: AppWindowService ) { }
 
-    }
+
+    ngOnInit() {}
+
+    // public showList2(template: TemplateRef) {
+    //     this.windowService.open({
+    //           title: 'My List',
+    //           content: template,
+    //           width: 250,
+    //           height: 230
+    //     });
+    // }
 
 
-    ngOnInit() {
-    }
+    // public showList(titlebar: TemplateRef<any>, modulename: any) {
 
+    //     if(modulename === 'Absence Tracking') {
+    //         this.moduleContent = PersonsComponent;
+    //         this.modulename = modulename;
+    //         //this.moduleTitle = 'Absence Tracking';
+    //     }
+
+    //     this.windowService.open({
+    //         content: this.moduleContent,
+    //         titleBarContent: titlebar,
+    //         width: 850,
+            
+    //     });
+    // }
+
+  	public showWindow(titlebar: TemplateRef<any>, modulename: any) {
+
+        this.appWindowService.openWindow(titlebar, modulename);
  
 
-  	public showWindow(modulename: any) {
 
-  		if(modulename === 'Categories') {
-  			this.moduleContent = CategoriesComponent;
-  		}
-  		if(modulename === 'Products') {
-  			this.moduleContent = ProductsComponent;
-  		}
-  		if(modulename === 'Absence Tracking') {
-  			this.moduleContent = PersonsComponent;
-  		}
+        // this.modulename = modulename;
 
-		const windowRef = this.windowService.open({
-            appendTo: this.containerRef,
-			title: modulename,
-			content: this.moduleContent,
-			width: 850,
-			minWidth: 850
-		});
+  // 		if(modulename === 'Categories') {
+  // 			this.moduleContent = CategoriesComponent;    
+  // 		}
+  // 		if(modulename === 'Products') {
+  // 			this.moduleContent = ProductsComponent;
+  // 		}
+  // 		if(modulename === 'Absence Tracking') {
+  // 			this.moduleContent = PersonsComponent; 
+  //           //this.modulename = modulename;
+  // 		}
 
-		const userInfo = windowRef.content.instance;
-		userInfo.name = 'admin';
-		userInfo.age = 42;
+		// const windowRef = this.windowService.open({
+  //           appendTo: this.containerRef,
+		// 	title: modulename,
+		// 	content: this.moduleContent,
+  //           titleBarContent: titlebar,
+		// 	width: 850,
+		// 	minWidth: 850
+		// });
 
-        windowRef.result.subscribe((result) => {
+		// const userInfo = windowRef.content.instance;
+		// userInfo.name = 'admin';
+		// userInfo.age = 42;
 
-            if (result instanceof WindowCloseResult) {
-                console.log('Window was closed!');
-            }
-        });
+        // windowRef.result.subscribe((result) => {
+
+        //     if (result instanceof WindowCloseResult) {
+        //         console.log('Window was closed!');
+        //     }
+        // });
+
+
+        // var test = document.getElementById('workspace');
+        // console.log(test)
+
 
 
        // var winObject = windowRef.instance;
@@ -87,7 +121,17 @@ export class WorkspaceComponent implements OnInit {
 
         // });
 
+       
+
   	}
 
+    public onDragStart() {
+        console.log('Drag Start');
+    }
+
+
+    public test() {
+        console.log('Window Title click')
+    }
  
 }

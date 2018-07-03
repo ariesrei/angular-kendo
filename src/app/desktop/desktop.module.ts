@@ -46,6 +46,7 @@ import { CategoriesModule }         from './sample-data/categories/categories.mo
 /  Services
 -----------------------------------------------*/ 
 import { DesktopService }           from './desktop.service';
+import { AppWindowService }           from './services/window.service';
 
 
 @NgModule({
@@ -103,6 +104,6 @@ import { DesktopService }           from './desktop.service';
         CategoriesComponent,
         ProductsComponent
     ],
-    providers: []
+    providers: [ ]
 })
 export class DesktopModule { }

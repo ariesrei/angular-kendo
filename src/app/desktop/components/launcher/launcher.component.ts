@@ -1,4 +1,4 @@
-import { Component, TemplateRef, Input, HostListener } from '@angular/core';
+import { Component, OnInit, TemplateRef, Input, HostListener, ViewChild, ViewContainerRef } from '@angular/core';
 
 import { WindowService } from '@progress/kendo-angular-dialog';
 
@@ -13,7 +13,11 @@ import { CategoriesComponent } from '../../sample-data/categories/categories.com
 	styleUrls: ['./launcher.component.scss']
 })
 export class LauncherComponent {
-	 
+	
+	@ViewChild("container", { read: ViewContainerRef })
+    public containerRef: ViewContainerRef;
+
+
  	public moduleContent: any;
 
   	constructor(private windowService: WindowService) { }
@@ -31,6 +35,7 @@ export class LauncherComponent {
   		}
 
 		const windowRef = this.windowService.open({
+			appendTo: this.containerRef,
 			title: modulename,
 			content: this.moduleContent,
 			width: 850,
