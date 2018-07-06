@@ -7,9 +7,7 @@ import { GridDataResult,
 
 import { State }               from '@progress/kendo-data-query';
 
-
-
-import { PersonsService } from './persons.service';
+import { PersonsService }          from '../../services/persons.service';
 
 
 @Component({
@@ -94,7 +92,7 @@ export class UserInfoComponent {
 
     
     onClick() {
-        console.log('Click button')
+        console.log('Click button') 
     }
 
     // public onSelect({ dataItem, item }): void {

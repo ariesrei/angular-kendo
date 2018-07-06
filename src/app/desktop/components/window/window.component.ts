@@ -14,8 +14,9 @@ export class WindowComponent {
     clientX = 0;
     clientY = 0;
 
-
-  	constructor() {}
+  	constructor() {
+  		//console.log('test')
+  	}
 
   	onEvent(event: MouseEvent): void {
         this.event = event;

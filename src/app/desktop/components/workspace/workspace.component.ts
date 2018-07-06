@@ -52,9 +52,9 @@ export class WorkspaceComponent implements OnInit {
 
   	public showWindow(titlebar: TemplateRef<any>, modulename: any) {
 
-        this.appWindowService.openWindow(titlebar, modulename);
+        var win = this.appWindowService.openWindow(titlebar, modulename);
  
-
+  
 
         // this.modulename = modulename;
 

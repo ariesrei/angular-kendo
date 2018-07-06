@@ -14,7 +14,7 @@ import { State,
         SortDescriptor, 
         orderBy }                           from '@progress/kendo-data-query';
 
-import { ProductsService }                  from './products.service';
+import { ProductsService }                  from '../../services/products.service';
 
 
 @Component({
@@ -32,12 +32,11 @@ import { ProductsService }                  from './products.service';
         [reorderable]="true" 
         [resizable]="true"
         [sortable]="true"
-
+        [scrollable]="virtual"
         [pageSize]="state.take"
         [skip]="state.skip"
         [sort]="state.sort"
-        
-        [scrollable]="scrollable"
+
         [navigable]="true"
         [loading]="view.loading"
         (dataStateChange)="dataStateChange($event)"

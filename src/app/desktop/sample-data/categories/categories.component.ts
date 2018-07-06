@@ -12,7 +12,7 @@ import { State,
         SortDescriptor, 
         orderBy }                   from '@progress/kendo-data-query';
 
-import { CategoriesService }        from './categories.service';
+import { CategoriesService }        from '../../services/categories.service';
 
 
 @Component({
@@ -20,7 +20,7 @@ import { CategoriesService }        from './categories.service';
   template: `
     <kendo-grid #grid
         [data]="view | async"
- 
+  
         [pageable]="{
             buttonCount: buttonCount,
             pageSizes: pageSizes,

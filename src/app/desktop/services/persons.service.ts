@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 
 /* extends */
-import { DesktopService } from '../../desktop.service';
+import { DesktopService } from '../desktop.service';
 
 @Injectable()
 export class PersonsService extends DesktopService {

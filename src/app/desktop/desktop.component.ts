@@ -17,7 +17,7 @@ import { DesktopService } from './desktop.service';
 	        	]),
 	        	transition(':leave', [
 	          		style({transform: 'translateY(0)', opacity: 1}),
-	          		animate('100ms', style({transform: 'translateY(-100%)', opacity: 0}))
+	          		animate('100ms', style({transform: 'translateY(100%)', opacity: 0}))
 	        	])
 	      	]
 	    )
@@ -25,7 +25,7 @@ import { DesktopService } from './desktop.service';
 })
 export class DesktopComponent {
 
-
+  
   	constructor(public desktopService: DesktopService) {}
 
 

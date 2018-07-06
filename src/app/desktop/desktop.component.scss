@@ -4,22 +4,21 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	bottom: 50px;
+	bottom: 45px;
 	width: 100%;
 	//height: 100%;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	z-index: 0;
-	background-image:#53a2ed;
-	border: 1px red solid;
-	overflow: hidden;
+	background-color: rgba(0,0,0,0.4);
+	//overflow: hidden;
 }
 
 .launcher {
 	position: absolute;
 	left: 0;
-	bottom: 50px;
+	bottom: 45px;
 	padding: 20px;
 	width: 55vw;
 	min-width: 400px;

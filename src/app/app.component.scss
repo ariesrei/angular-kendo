@@ -1,10 +1,12 @@
-$desktop-bg: #0480c8;
+$desktop-bg: url('../assets/images/bg3.jpg');
+$desktop-bg-color: #999;
 
 $taskbar-height: 50px;
 
 .app-root {
 	position: absolute;
-	background: $desktop-bg;
+	background:$desktop-bg-color $desktop-bg;
+	background-size: cover;
 	//border: 1px red solid;
 	margin: 0;
 	padding: 0;

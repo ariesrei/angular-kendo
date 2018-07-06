@@ -1,45 +1,73 @@
 .taskbar {
-	display: block;
+	display: table;
 	position: absolute;
-	height: 50px;
+	height: 45px;
 	bottom: 0;
 	width: 100%;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
-	background: rgba(0,0,0,.7);
+	background: rgba(0,0,0,.95);
 	cursor: default;
 	padding: 0;
 	vertical-align: bottom;
-}
+	border-top: 1px #222 solid;
+	outline: 1px #111 solid;
 
-.launcher-btn {
-	color: #eee;
-	border: none;
-	background: rgba(0,0,0,.1);
-	position: relative;
-	height: 100%;
-	vertical-align: middle;
-	padding: 0 25px;
-	margin: 0;
+	div {
+		display: table-cell;
+		//border: 1px red solid;
+		height: 100%;
+		color: #eee;
+		font-size: 13px;
 
-	&:hover,
-	&:active,
-	&:focus {
-		background: rgba(0,0,0,.4);
-		border: none;
-		text-decoration: none;
-		padding: 0 25px;
-		margin: 0;
-	}
-
-	fa {
-		font-size: 1.5em;
-		color: rgba(255,255,255, .5);
-
-		&:hover {
-			color: red;
+		&:first-child {
+			width: 70px;
+			border-right: 1px #222 solid;
 		}
-	}
 
+		&:last-child {
+			width: 200px;
+		}
+
+
+
+
+		.launcher-btn {
+			color: #eee;
+			border: none;
+			background: rgba(0,0,0,.1);
+			position: relative;
+			height: 100%;
+		// 	vertical-align: middle;
+			padding: 0 25px;
+			margin: 0;
+
+		 
+
+			&:hover,
+			&:active,
+			&:focus {
+				background: rgba(0,0,0,.4);
+				border: none;
+				text-decoration: none;
+				padding: 0 25px;
+				margin: 0;
+				color: #fff;
+			}
+
+			fa {
+				font-size: 1.5em;
+				color: rgba(255,255,255, .5);
+
+				&:hover {
+					color: red;
+				}
+			}
+
+		}
+
+
+	}
 }
+

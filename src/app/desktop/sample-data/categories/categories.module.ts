@@ -7,7 +7,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 /*----------------------------------------------
 /  Services
 -----------------------------------------------*/ 
-import { CategoriesService }        from './categories.service';
+import { CategoriesService }        from '../../services/categories.service';
 
 
 

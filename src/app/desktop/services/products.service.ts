@@ -10,7 +10,7 @@ import { map } 				from 'rxjs/operators/map';
 import { tap } 				from 'rxjs/operators/tap';
 
 /* extends */
-import { DesktopService } from '../../desktop.service';
+import { DesktopService } from '../desktop.service';
 
 
 @Injectable()
